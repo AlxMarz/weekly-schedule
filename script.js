@@ -3,6 +3,8 @@
   var formContainer = $("#formContainer")
   var button =$("button")
 
+
+  //checks time blocks in order to save to local storage 
   function saveWork(event){
     event.preventDefault()
     if ($(this).attr("class") === "saveBtn 9"){
@@ -37,6 +39,8 @@
 
   }
 
+
+  //load the past info from local storage 
   function loadPrev(){
     $("#block9").val(localStorage.getItem("block9"))
     $("#block10").val(localStorage.getItem("block10"))
@@ -49,6 +53,8 @@
     $("#block5").val(localStorage.getItem("block5"))
   }
 
+
+  //checks and matches the time to the current 
   function checkTime(){
     var time9 = moment().hour(8);
     var time10 = moment().hour(9)
@@ -127,6 +133,8 @@
 
   formContainer.on("click", ".saveBtn", saveWork)
 
+
+// displays the current time and date 
   function init(){
     setInterval(function(){
       timeContainer.text(currentTime.format("[current day:]MMMM Do [a] dddd, [time:] hh:mm A"))
